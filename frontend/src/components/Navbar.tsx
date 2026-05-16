@@ -9,11 +9,11 @@ export function Navbar() {
   const isActive = (path: string) => pathname === path
 
   return (
-    <nav className="bg-white border-b border-gray-200 shadow">
+    <nav className="bg-surface-container border-b border-outline-variant glass-panel">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-8">
-            <Link href="/" className="text-2xl font-bold text-blue-600">
+            <Link href="/" className="text-2xl font-bold font-display text-primary">
               Ancora Timer ⏱️
             </Link>
 
@@ -22,8 +22,8 @@ export function Navbar() {
                 href="/timer"
                 className={`py-2 px-3 rounded-md text-sm font-medium transition ${
                   isActive('/timer')
-                    ? 'bg-blue-100 text-blue-700'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    ? 'bg-primary/20 text-primary'
+                    : 'text-on-surface hover:bg-white/5'
                 }`}
               >
                 Timer
@@ -32,8 +32,8 @@ export function Navbar() {
                 href="/historico"
                 className={`py-2 px-3 rounded-md text-sm font-medium transition ${
                   isActive('/historico')
-                    ? 'bg-blue-100 text-blue-700'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    ? 'bg-primary/20 text-primary'
+                    : 'text-on-surface hover:bg-white/5'
                 }`}
               >
                 History
@@ -42,8 +42,8 @@ export function Navbar() {
                 href="/relatorios"
                 className={`py-2 px-3 rounded-md text-sm font-medium transition ${
                   isActive('/relatorios')
-                    ? 'bg-blue-100 text-blue-700'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    ? 'bg-primary/20 text-primary'
+                    : 'text-on-surface hover:bg-white/5'
                 }`}
               >
                 Reports
@@ -52,7 +52,7 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
-            <button className="p-2 text-gray-700 hover:bg-gray-100 rounded-md transition">
+            <button className="p-2 text-on-surface hover:bg-white/10 rounded-md transition">
               🔔
             </button>
           </div>

@@ -4,6 +4,7 @@ import { useTimerStore } from '@/store/timerStore'
 import { useNotification } from '@/hooks/useNotification'
 import { createSession } from '@/services/api'
 import { useDb } from '@/hooks/useDb'
+import { Button } from '@/components/ui/Button'
 
 export function TimerControls() {
   const store = useTimerStore()
@@ -53,46 +54,58 @@ export function TimerControls() {
     notification.info('Session reset')
   }
 
+  const isBreakMode = store.status === 'break' || store.status === 'paused'
+  const state = isBreakMode ? 'break' : 'focus'
+
   return (
     <div className="flex gap-4 justify-center p-8 flex-wrap">
       {store.status === 'idle' ? (
-        <button
+        <Button
           onClick={handleStart}
-          className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg"
+          variant="primary"
+          state={state}
+          className="py-3 px-8 text-lg"
         >
           Start
-        </button>
+        </Button>
       ) : store.status === 'running' || store.status === 'pre-warning' ? (
         <>
-          <button
+          <Button
             onClick={handlePause}
-            className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-8 rounded-lg"
+            variant="secondary"
+            state="focus"
+            className="py-3 px-8 text-lg"
           >
             Pause
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={handleReset}
-            className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg"
+            variant="ghost"
+            className="py-3 px-8 text-lg border-error text-error hover:bg-error/10"
           >
             Reset
-          </button>
+          </Button>
         </>
       ) : store.status === 'break' ? (
-        <button
+        <Button
           onClick={handleResume}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg"
+          variant="primary"
+          state="break"
+          className="py-3 px-8 text-lg"
         >
           End Break
-        </button>
+        </Button>
       ) : null}
 
       {store.status === 'paused' && (
-        <button
+        <Button
           onClick={handleResume}
-          className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg"
+          variant="primary"
+          state="focus"
+          className="py-3 px-8 text-lg"
         >
           Resume
-        </button>
+        </Button>
       )}
     </div>
   )

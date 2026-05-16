@@ -1,0 +1,10 @@
+[
+  {
+    "name": "stitch",
+    "transport": "http",
+    "url": "https://stitch.googleapis.com/mcp",
+    "headers": {
+      "X-Goog-Api-Key": "${STITCH_API_KEY}"
+    }
+  }
+]

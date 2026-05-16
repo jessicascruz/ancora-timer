@@ -20,13 +20,13 @@ export function Sidebar() {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-20 left-4 z-40 md:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-md"
+        className="fixed top-20 left-4 z-40 md:hidden p-2 text-on-surface hover:bg-white/10 rounded-md"
       >
         ☰
       </button>
 
       <div
-        className={`fixed top-16 left-0 h-[calc(100vh-4rem)] w-64 bg-white border-r border-gray-200 transition-transform duration-300 ${
+        className={`fixed top-16 left-0 h-[calc(100vh-4rem)] w-64 bg-surface-container border-r border-outline-variant glass-panel transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         } md:translate-x-0 z-30`}
       >
@@ -37,8 +37,8 @@ export function Sidebar() {
               href={link.href}
               className={`flex items-center gap-3 w-full py-3 px-4 rounded-lg font-medium transition ${
                 isActive(link.href)
-                  ? 'bg-blue-100 text-blue-700'
-                  : 'text-gray-700 hover:bg-gray-100'
+                  ? 'bg-primary/20 text-primary'
+                  : 'text-on-surface hover:bg-white/5'
               }`}
             >
               <span className="text-xl">{link.icon}</span>
@@ -46,12 +46,12 @@ export function Sidebar() {
             </Link>
           ))}
 
-          <div className="pt-4 mt-4 border-t border-gray-200">
-            <button className="flex items-center gap-3 w-full py-3 px-4 rounded-lg font-medium text-gray-700 hover:bg-gray-100 transition">
+          <div className="pt-4 mt-4 border-t border-outline-variant">
+            <button className="flex items-center gap-3 w-full py-3 px-4 rounded-lg font-medium text-on-surface hover:bg-white/5 transition">
               <span className="text-xl">⚙️</span>
               <span>Settings</span>
             </button>
-            <button className="flex items-center gap-3 w-full py-3 px-4 rounded-lg font-medium text-gray-700 hover:bg-gray-100 transition">
+            <button className="flex items-center gap-3 w-full py-3 px-4 rounded-lg font-medium text-on-surface hover:bg-white/5 transition">
               <span className="text-xl">ℹ️</span>
               <span>About</span>
             </button>

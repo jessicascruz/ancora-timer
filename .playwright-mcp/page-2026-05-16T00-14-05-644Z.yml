@@ -1,0 +1,63 @@
+- generic [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e182] [cursor=pointer]:
+    - img [ref=e183]
+  - alert [ref=e61]
+  - main [ref=e187]:
+    - navigation [ref=e188]:
+      - generic [ref=e189]:
+        - generic [ref=e190]: DeepFlow
+        - generic [ref=e191]: Deep Work Mode
+      - generic [ref=e192]:
+        - link "timer Timer" [ref=e193] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e194]: timer
+          - generic [ref=e195]: Timer
+        - link "history History" [ref=e196] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e197]: history
+          - generic [ref=e198]: History
+        - link "bar_chart Reports" [ref=e199] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e200]: bar_chart
+          - generic [ref=e201]: Reports
+        - link "settings Settings" [ref=e202] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e203]: settings
+          - generic [ref=e204]: Settings
+      - button "Start Session" [ref=e205]
+    - main [ref=e206]:
+      - generic [ref=e210]:
+        - button "Focus" [ref=e211]
+        - button "Break" [ref=e212]
+      - generic [ref=e213]:
+        - img [ref=e214]
+        - generic [ref=e217]:
+          - generic [ref=e218]: 45:00
+          - generic [ref=e219]: Taking a Break
+      - generic [ref=e220]:
+        - generic [ref=e221]:
+          - generic [ref=e222]:
+            - button "25m" [ref=e223]
+            - button "45m" [ref=e224]
+            - button "50m" [ref=e225]
+            - button "90m" [ref=e226]
+          - button "tune" [ref=e227]:
+            - generic [ref=e228]: tune
+        - generic [ref=e229]:
+          - button "replay" [ref=e230]:
+            - generic [ref=e231]: replay
+          - button "play_arrow" [ref=e232]:
+            - generic [ref=e233]: play_arrow
+          - button "skip_next" [ref=e234]:
+            - generic [ref=e235]: skip_next
+    - generic [ref=e237]:
+      - generic [ref=e238]:
+        - heading "Custom Session" [level=3] [ref=e239]
+        - button "close" [ref=e240]
+      - generic [ref=e241]:
+        - generic [ref=e242]:
+          - generic [ref=e243]:
+            - generic [ref=e244]: Duration
+            - generic [ref=e245]: 91 min
+          - slider [active] [ref=e246] [cursor=pointer]: "91"
+        - button "Apply Config" [ref=e247]

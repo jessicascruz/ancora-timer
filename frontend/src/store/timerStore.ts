@@ -71,7 +71,7 @@ export const useTimerStore = create<TimerStore>((set, get) => ({
   },
 
   triggerPreWarning: () => set({ status: 'pre-warning', showNoteModal: true }),
-  completeSession:   () => set({ status: 'break', showNoteModal: false }),
+  completeSession:   () => set({ status: 'break', timeLeft: get().breakDuration * 60 }),
   startBreak:        () => set((s) => ({ timeLeft: s.breakDuration * 60 })),
 
   endBreak: () => set({

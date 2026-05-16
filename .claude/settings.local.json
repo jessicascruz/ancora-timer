@@ -3,7 +3,14 @@
     "allow": [
       "Bash(curl -s http://localhost:8000/health)",
       "mcp__plugin_playwright_playwright__browser_take_screenshot",
-      "mcp__plugin_playwright_playwright__browser_click"
+      "mcp__plugin_playwright_playwright__browser_click",
+      "PowerShell(Get-NetTCPConnection -LocalPort 8000 -ErrorAction SilentlyContinue | Select-Object State, OwningProcess; Get-Process -Id \\(Get-NetTCPConnection -LocalPort 8000 -ErrorAction SilentlyContinue\\).OwningProcess -ErrorAction SilentlyContinue | Select-Object Name, Id)",
+      "PowerShell(Stop-Process -Id 39696 -Force -ErrorAction SilentlyContinue)",
+      "PowerShell(New-NetFirewallRule -DisplayName \"Python Port 8000\" -Direction Inbound -LocalPort 8000 -Protocol TCP -Action Allow -ErrorAction SilentlyContinue)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_console_messages",
+      "mcp__plugin_playwright_playwright__browser_close",
+      "mcp__plugin_playwright_playwright__browser_type"
     ]
   }
 }

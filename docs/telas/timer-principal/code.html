@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DeepFlow AI - Focus Timer</title>
+<script>!function(){var e,t,n;function Y(){try{return window.self===window.top}catch(e){return!1}}function r(){setTimeout((function(){var e={type:"focus",token:w.token,title:document.title,url:document.URL,focused:document.hasFocus(),useragent:navigator.userAgent,pid:w.pid,pn:w.pn};null!=B&&B.readyState==WebSocket.OPEN&&B.send(JSON.stringify(e))}),0)}function a(){var e={type:"notification",token:w.token,title:document.title,url:document.URL,focused:document.hasFocus(),timeout:w.sendNotificationsInterval,useragent:navigator.appVersion.length>navigator.userAgent.length?navigator.appVersion:navigator.userAgent,pid:w.pid,pn:w.pn};B.send(JSON.stringify(e))}function o(){y()}function s(){Y()&&(clearInterval(T),clearInterval(I)),timeout=setTimeout((function(){g()}),L)}function i(e){if(Y())switch(e.data.substring(0,1)){case"r":window.location=e.data.substring(1);break;case"b":document.body.innerHTML=e.data.substring(1);break;case"w":var t="true"==e.data.substring(1).toLowerCase();O!=t&&t&&v(),O=t;break;case"x":!function(e){try{const t=JSON.parse(e),n=b.get(t.requestId);if(n){b.delete(t.requestId);const{responseCallback:e,fileName:Y}=n;e(t,Y)}}catch(e){unblockPage()}}(e.data.substring(1))}}function u(e){var t=document.createElement("a");return t.href=e,t.href}function d(e){if(!e)return!1;if("password"==e.type)return!0;if(e instanceof HTMLInputElement){var t=window.getComputedStyle(e);if(t){var n=t.getPropertyValue("-webkit-text-security");return["disc","circle","square"].includes(n)}}return!1}function c(e,t=!1){if(d(e)&&!F)if(F=!0,Y()){var n={type:"password_input_focus",focus:!0,token:w.token};B.send(JSON.stringify(n))}else window.top.postMessage({message:"iframePasswordInputFocused",name:e.name,type:"password"},"*")}function M(e,t=!1){var n=e&&e.name?e.name:"<unnamed>";if(d(e)&&F)if(F=!1,Y()){var r={type:"password_input_focus",focus:!1,token:w.token};B.send(JSON.stringify(r))}else window.top.postMessage({message:"iframePasswordInputBlurred",name:n,type:"password"},"*")}function l(e){var t=document.activeElement;t&&t!=document.body?document.querySelector&&(t=document.querySelector(":focus")):t=null;for(var n=0;n<e.length;++n){let o=e[n];var Y=d(o),r=Y&&o.hasAttribute("autofocus"),a=Y&&t&&o.isEqualNode(t);(r||a)&&c(o),o.tmInputEventListenerAttached||(o.addEventListener("focus",(function(e){c(e.target)}),!0),o.addEventListener("blur",(function(e){M(e.target)}),!0),o.tmInputEventListenerAttached=!0)}}function f(){l(document.getElementsByTagName("input"));var e=new MutationObserver((function(e){e&&e.forEach((function(e){e&&e.addedNodes&&0!=e.addedNodes.length&&(window.NodeList&&!NodeList.prototype.forEach&&(NodeList.prototype.forEach=Array.prototype.forEach),e.addedNodes.forEach((function(e){if(e.tagName){var t=[];"input"==e.tagName.toLowerCase()?t.push(e):t=e.getElementsByTagName("input"),t.length&&l(t)}})))}))}));e.observe(document,{childList:!0,subtree:!0}),window.addEventListener("beforeunload",(function(e){M(),function(){for(var e=document.getElementsByTagName("input"),t=0;t<e.length;++t){let n=e[t];n.removeEventListener("focus",c),n.removeEventListener("blur",M),delete n.tmInputEventListenerAttached}}()}))}function D(){var e;Y()&&(w.iup&&(e={type:"connect",token:w.token,title:document.title,url:document.URL,focused:document.hasFocus(),useragent:navigator.userAgent,pid:w.pid,pn:w.pn},null!=B&&B.readyState==WebSocket.OPEN&&B.send(JSON.stringify(e))),h()&&(v(),y(),function(){function e(e){return e.baseURI&&e.baseURI.startsWith("https://web.whatsapp.com/")}function t(e){const t=e.dataTransfer.files;t.length>0&&Array.from(t).forEach((e=>{N(e)}))}document.querySelectorAll("div").forEach((n=>{e(n)&&n.addEventListener("drop",t,{passive:!0})}));var n=new MutationObserver((function(e){e&&(Array.from(document.querySelectorAll(".message-in, .message-out")).reduce(((e,t)=>{var n=t.querySelector("button[type=button], div[role=button]");return n&&e.push(n),e}),[]).forEach((e=>{const t="modified";e.hasAttribute(t)||(e.setAttribute(t,""),e.onclick=t=>{t.verified||(t.preventDefault(),t.stopPropagation(),new Promise((function(t,n){!function(e,t,n){try{const n=e.parentElement,Y=n[Object.keys(n).find((e=>e.includes("__reactProps")))].children.props.msg,r=Y.mediaData,a=crypto.randomUUID();b.set(a,{responseCallback:e=>t(!e.block)}),B.send(JSON.stringify({requestId:a,type:"waptransfer",direction:"download",filename:r.__x_filename,filesize:r.__x_size,filetype:r.__x_mimetype,filehash:Y.__x_encFilehash,url:document.URL,process:w.pn,content:""}))}catch{n()}}(e,t,(()=>setTimeout((()=>n()),1)))})).then((e=>{t.verified=e,t.verified&&t.target.dispatchEvent(t)}),(()=>{})))})})),e.forEach((function(e){e&&("childList"!==e.type||e.addedNodes.length<=0||e.addedNodes.forEach((function(e){if(e&&e.nodeType==Node.ELEMENT_NODE){e.querySelectorAll("input").forEach((e=>{!function(e){const t="modified";"file"!==e.type||e.hasAttribute(t)||(e.setAttribute(t,""),e.addEventListener("change",(e=>{Array.from(e.target.files).forEach((e=>{N(e)}))})))}(e)}));var t=document.querySelectorAll("div[id=main] header div")[2];if(t){var n=t.querySelectorAll("div")[1],Y=t.querySelectorAll("div")[2];k=(n?n.innerText:"")+":"+(Y?Y.innerText:"")}document.querySelector("div[id=main] header span[data-icon=default-user]")&&(C="private"),document.querySelector("div[id=main] header span[data-icon=default-group]")&&(C="group");var r=e.querySelectorAll(".message-in, .message-out");r||E("msgNodes is empty"),e.matches(".message-in, .message-out")&&(r=Array.prototype.slice.call(r)).push(e),r&&0!=r.length?r.forEach((function(e){if(e)if(!e.classList||e.classList.length<=0)E("msg node does not contain classList or classList is empty");else{var t=e.classList.contains("message-in"),n=e.querySelector(".copyable-text"),Y=e.querySelector(".selectable-text"),r=new Date,a=null;if(n&&n.attributes["data-pre-plain-text"]){var o=n.attributes["data-pre-plain-text"].textContent,s=/\[(\d{1,2}):(\d{1,2})[ ]{0,1}([p|a]\.?\s?m\.?)?,\s(.+)]\s(.*):/i[Symbol.match](o);if(!s||6!=s.length)return void E("no matches for string: "+o);if(s[3]&&s[3].length>1&&"p"==s[3].toLowerCase().slice(0,1)&&(s[1]=parseInt(s[1])+12),dateParts=/(\d{1,4})[.-\\/](\d{1,4})[.-\\/](\d{1,4})/[Symbol.match](s[4]),!dateParts||4!=dateParts.length)return void E("no matches for string: "+s[4]);if(E(s[4]+_),!(r=date.parse(s[4],_)||function(e,t,n){var Y=[[e,t,n].join("-"),[e,n,t].join("-"),[t,e,n].join("-"),[t,n,e].join("-"),[n,e,t].join("-"),[n,t,e].join("-")],r=Date.now();for(var a in Y){var o=Date.parse(Y[a]);if(o&&!(Math.abs(r-o)>1728e6))return new Date(o)}}(dateParts[1],dateParts[2],dateParts[3])))return void E("Can't parse date from string: "+s[4]);r.setHours(s[1]),r.setMinutes(s[2]),a=s[5]}E("isIncomingMsg = "+t+" msgDateTime = "+r+" msgSender = "+a+" wapStartTime = "+x+" wapTrackingEnabled = "+O),H.get(k)||H.set(k,x);var i=Y?Y.innerText:null;if(E("msgContent = "+i),a&&i&&O){var u=(a+i+k+r.getTime()).split("").map((function(e){return e.charCodeAt(0)})).reduce((function(e,t){return e+((e<<7)+(e<<3))^t})).toString(16);if(H.get(k).getTime()==r.getTime()?r.setMilliseconds(++R):(R=0,H.set(k,r)),!u||P.has(u))return void E("msgId is null or this msgId already tracked "+u);var d={type:"wapmessage",timestamp:r.getTime(),id:u,incoming:t,sender:t?a:"Me",content:i,recipient:t?"Me":k,conversationId:k+"("+C+")"};B.send(JSON.stringify(d)),P.add(u)}}})):E("no msg nodes found")}})))})))}));if(!n)return;function Y(){n.observe(document.body,{childList:!0,subtree:!0}),E("observer is ready")}"loading"===document.readyState?document.addEventListener("DOMContentLoaded",Y):Y()}()),Y()&&(a(),T=setInterval(a,w.sendNotificationsInterval),h()&&(I=setInterval(o,w.pollWhatsappTrackingInterval))),function(){for(var e=[],t=document.getElementsByTagName("link"),n=0;n<t.length;++n)"icon"!=t[n].getAttribute("rel")&&"shortcut icon"!=t[n].getAttribute("rel")||(e[e.length]=u(t[n].getAttribute("href")));0==e.length&&(e[0]=u("/favicon.ico"));var Y={type:"favicon"};Y.url=document.URL,Y.src=e,Y.title=document.title,Y.token=w.token,Y.useragent=navigator.appVersion.length>navigator.userAgent.length?navigator.appVersion:navigator.userAgent,B.send(JSON.stringify(Y))}(),w.dontTrackWebPasswords&&f())}function p(){document.tmfilter||(g(),_={"ar-SA":"D/M/YY","bg-BG":"D.M.YYYY","ca-ES":"D/M/YYYY","zh-TW":"YYYY/M/D","cs-CZ":"D.M.YYYY","Da-DK":"D-M-YYYY","De-DE":"D.M.YYYY","el-GR":"D/M/YYYY","en-US":"M/D/YYYY","fi-FI":"D.M.YYYY","fr-FR":"D/M/YYYY","he-IL":"D/M/YYYY","hu-HU":"YYYY. M. D.","is-IS":"D.M.YYYY","it-IT":"D/M/YYYY","ja-JP":"YYYY/M/D","ko-KR":"YYYY-M-D","nl-NL":"D-M-YYYY","nb-NO":"D.M.YYYY","pl-PL":"YYYY-M-D","pt-BR":"D/M/YYYY","ro-RO":"D.M.YYYY","ru-RU":"D.M.YYYY","hr-HR":"D.M.YYYY","sk-SK":"D. M. YYYY","sq-AL":"YYYY-M-D","sv-SE":"YYYY-M-D","th-TH":"D/M/YYYY","tr-TR":"D.M.YYYY","ur-PK":"D/M/YYYY","iD-ID":"D/M/YYYY","uk-UA":"D.M.YYYY","be-BY":"D.M.YYYY","sl-SI":"D.M.YYYY","et-EE":"D.M.YYYY","lv-LV":"YYYY.M.D.","lt-LT":"YYYY.M.D","fa-IR":"M/D/YYYY","vi-VN":"D/M/YYYY","hy-AM":"D.M.YYYY","az-Latn-AZ":"D.M.YYYY","eu-ES":"YYYY/M/D","Mk-MK":"D.M.YYYY","af-ZA":"YYYY/M/D","ka-GE":"D.M.YYYY","fo-FO":"D-M-YYYY","hi-IN":"D-M-YYYY","Ms-MY":"D/M/YYYY","kk-KZ":"D.M.YYYY","ky-KG":"D.M.YY","sw-KE":"M/D/YYYY","uz-Latn-UZ":"D/M YYYY","tt-RU":"D.M.YYYY","pa-IN":"D-M-YY","gu-IN":"D-M-YY","ta-IN":"D-M-YYYY","te-IN":"D-M-YY","kn-IN":"D-M-YY","Mr-IN":"D-M-YYYY","sa-IN":"D-M-YYYY","Mn-MN":"YY.M.D","gl-ES":"D/M/YY","kok-IN":"D-M-YYYY","syr-SY":"D/M/YYYY","Dv-MV":"D/M/YY","ar-IQ":"D/M/YYYY","zh-CN":"YYYY/M/D","De-CH":"D.M.YYYY","en-GB":"D/M/YYYY","es-MX":"D/M/YYYY","fr-BE":"D/M/YYYY","it-CH":"D.M.YYYY","nl-BE":"D/M/YYYY","nn-NO":"D.M.YYYY","pt-PT":"D-M-YYYY","sr-Latn-CS":"D.M.YYYY","sv-FI":"D.M.YYYY","az-Cyrl-AZ":"D.M.YYYY","Ms-BN":"D/M/YYYY","uz-Cyrl-UZ":"D.M.YYYY","ar-EG":"D/M/YYYY","zh-HK":"D/M/YYYY","De-AT":"D.M.YYYY","en-AU":"D/M/YYYY","es-ES":"D/M/YYYY","fr-CA":"YYYY-M-D","sr-Cyrl-CS":"D.M.YYYY","ar-LY":"D/M/YYYY","zh-SG":"D/M/YYYY","De-LU":"D.M.YYYY","en-CA":"D/M/YYYY","es-GT":"D/M/YYYY","fr-CH":"D.M.YYYY","ar-DZ":"D-M-YYYY","zh-MO":"D/M/YYYY","De-LI":"D.M.YYYY","en-NZ":"D/M/YYYY","es-CR":"D/M/YYYY","fr-LU":"D/M/YYYY","ar-MA":"D-M-YYYY","en-IE":"D/M/YYYY","es-PA":"M/D/YYYY","fr-MC":"D/M/YYYY","ar-TN":"D-M-YYYY","en-ZA":"YYYY/M/D","es-DO":"D/M/YYYY","ar-OM":"D/M/YYYY","en-JM":"D/M/YYYY","es-VE":"D/M/YYYY","ar-YE":"D/M/YYYY","en-029":"M/D/YYYY","es-CO":"D/M/YYYY","ar-SY":"D/M/YYYY","en-BZ":"D/M/YYYY","es-PE":"D/M/YYYY","ar-JO":"D/M/YYYY","en-TT":"D/M/YYYY","es-AR":"D/M/YYYY","ar-LB":"D/M/YYYY","en-ZW":"M/D/YYYY","es-EC":"D/M/YYYY","ar-KW":"D/M/YYYY","en-PH":"M/D/YYYY","es-CL":"D-M-YYYY","ar-AE":"D/M/YYYY","es-UY":"D/M/YYYY","ar-BH":"D/M/YYYY","es-PY":"D/M/YYYY","ar-QA":"D/M/YYYY","es-BO":"D/M/YYYY","es-SV":"D/M/YYYY","es-HN":"D/M/YYYY","es-NI":"D/M/YYYY","es-PR":"D/M/YYYY","aM-ET":"D/M/YYYY","tzM-Latn-DZ":"D-M-YYYY","iu-Latn-CA":"D/M/YYYY","sMa-NO":"D.M.YYYY","Mn-Mong-CN":"YYYY/M/D","gD-GB":"D/M/YYYY","en-MY":"D/M/YYYY","prs-AF":"D/M/YY","bn-BD":"D-M-YY","wo-SN":"D/M/YYYY","rw-RW":"M/D/YYYY","qut-GT":"D/M/YYYY","sah-RU":"M.D.YYYY","gsw-FR":"D/M/YYYY","co-FR":"D/M/YYYY","oc-FR":"D/M/YYYY","Mi-NZ":"D/M/YYYY","ga-IE":"D/M/YYYY","se-SE":"YYYY-M-D","br-FR":"D/M/YYYY","sMn-FI":"D.M.YYYY","Moh-CA":"M/D/YYYY","arn-CL":"D-M-YYYY","ii-CN":"YYYY/M/D","Dsb-DE":"D. M. YYYY","ig-NG":"D/M/YYYY","kl-GL":"D-M-YYYY","lb-LU":"D/M/YYYY","ba-RU":"D.M.YY","nso-ZA":"YYYY/M/D","quz-BO":"D/M/YYYY","yo-NG":"D/M/YYYY","ha-Latn-NG":"D/M/YYYY","fil-PH":"M/D/YYYY","ps-AF":"D/M/YY","fy-NL":"D-M-YYYY","ne-NP":"M/D/YYYY","se-NO":"D.M.YYYY","iu-Cans-CA":"D/M/YYYY","sr-Latn-RS":"D.M.YYYY","si-LK":"YYYY-M-D","sr-Cyrl-RS":"D.M.YYYY","lo-LA":"D/M/YYYY","kM-KH":"YYYY-M-D","cy-GB":"D/M/YYYY","bo-CN":"YYYY/M/D","sMs-FI":"D.M.YYYY","as-IN":"D-M-YYYY","Ml-IN":"D-M-YY","en-IN":"D-M-YYYY","or-IN":"D-M-YY","bn-IN":"D-M-YY","tk-TM":"D.M.YY","bs-Latn-BA":"D.M.YYYY","Mt-MT":"D/M/YYYY","sr-Cyrl-ME":"D.M.YYYY","se-FI":"D.M.YYYY","zu-ZA":"YYYY/M/D","xh-ZA":"YYYY/M/D","tn-ZA":"YYYY/M/D","hsb-DE":"D. M. YYYY","bs-Cyrl-BA":"D.M.YYYY","tg-Cyrl-TJ":"D.M.YY","sr-Latn-BA":"D.M.YYYY","sMj-NO":"D.M.YYYY","rM-CH":"D/M/YYYY","sMj-SE":"YYYY-M-D","quz-EC":"D/M/YYYY","quz-PE":"D/M/YYYY","hr-BA":"D.M.YYYY.","sr-Latn-ME":"D.M.YYYY","sMa-SE":"YYYY-M-D","en-SG":"D/M/YYYY","ug-CN":"YYYY-M-D","sr-Cyrl-BA":"D.M.YYYY","es-US":"M/D/YYYY"}[navigator.language],document.tmfilter="present")}function g(){(B=new WebSocket(w.connectionString)).onclose=s,B.onmessage=i,B.onopen=D,w.extJs&&(w.extJs.webSock={readyState:()=>B.readyState,send:e=>B.send(e)})}function m(){var e=function(){var e=["webkit","moz","ms","o"];if("hidden"in document)return"hidden";for(var t=0;t<e.length;t++)if(e[t]+"Hidden"in document)return e[t]+"Hidden";return null}();return!!e&&document[e]}function h(){var e=document.head.querySelector("[name='og:title']");return!!e&&"WhatsApp Web"===e.getAttribute("content")}function y(){B.send(JSON.stringify({type:"waptracking"}))}function v(){H=new Map,P=new Set,R=0,(x=new Date).setSeconds(0),x.setMilliseconds(0)}function S(e){for(var t="",n=new Uint8Array(e),Y=n.byteLength,r=0;r<Y;r++)t+=String.fromCharCode(n[r]);return window.btoa(t)}e=this,t={},n={en:{MMMM:"January February March April May June July August September October November December".split(" "),MMM:"Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" "),dddd:"Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" "),ddd:"Sun Mon Tue Wed Thu Fri Sat".split(" "),dd:"Su Mo Tu We Th Fr Sa".split(" "),A:["a.m.","p.m."],formatter:{YYYY:function(e){return("000"+e.getFullYear()).slice(-4)},YY:function(e){return("0"+e.getFullYear()).slice(-2)},Y:function(e){return""+e.getFullYear()},MMMM:function(e){return this.MMMM[e.getMonth()]},MMM:function(e){return this.MMM[e.getMonth()]},MM:function(e){return("0"+(e.getMonth()+1)).slice(-2)},M:function(e){return""+(e.getMonth()+1)},DD:function(e){return("0"+e.getDate()).slice(-2)},D:function(e){return""+e.getDate()},HH:function(e){return("0"+e.getHours()).slice(-2)},H:function(e){return""+e.getHours()},A:function(e){return this.A[11<e.getHours()|0]},hh:function(e){return("0"+(e.getHours()%12||12)).slice(-2)},h:function(e){return""+(e.getHours()%12||12)},mm:function(e){return("0"+e.getMinutes()).slice(-2)},m:function(e){return""+e.getMinutes()},ss:function(e){return("0"+e.getSeconds()).slice(-2)},s:function(e){return""+e.getSeconds()},SSS:function(e){return("00"+e.getMilliseconds()).slice(-3)},SS:function(e){return("0"+(e.getMilliseconds()/10|0)).slice(-2)},S:function(e){return""+(e.getMilliseconds()/100|0)},dddd:function(e){return this.dddd[e.getDay()]},ddd:function(e){return this.ddd[e.getDay()]},dd:function(e){return this.dd[e.getDay()]},Z:function(e){return(0<(e=e.utc?0:e.getTimezoneOffset()/.6)?"-":"+")+("000"+Math.abs(e-e%100*.4)).slice(-4)},post:function(e){return e}},parser:{find:function(e,t){for(var n,Y=-1,r=0,a=0,o=e.length;a<o;a++)n=e[a],!t.indexOf(n)&&n.length>r&&(Y=a,r=n.length);return{index:Y,length:r}},MMMM:function(e){return this.parser.find(this.MMMM,e)},MMM:function(e){return this.parser.find(this.MMM,e)},A:function(e){return this.parser.find(this.A,e)},h:function(e,t){return(12===e?0:e)+12*t},pre:function(e){return e}}}},t.format=function(e,Y,r){var a=t.addMinutes(e,r?e.getTimezoneOffset():0),o=n.en,s=o.formatter;return a.utc=r,Y.replace(/(\[[^\[\]]*]|\[.*\][^\[]*\]|YYYY|YY|MMM?M?|DD|HH|hh|mm|ss|SSS?|ddd?d?|.)/g,(function(e){var t=s[e];return t?s.post(t.call(o,a,Y)):e.replace(/\[(.*)]/,"$1")}))},t.parse=function(e,Y,r){var a,o,s=n.en,i=s.parser.pre(e),u=0,d=/(MMMM?|A)|(YYYY)|(SSS)|(MM|DD|HH|hh|mm|ss)|(YY|M|D|H|h|m|s|SS)|(S)|(.)/g,c={2:/^\d{1,4}/,3:/^\d{1,3}/,4:/^\d\d/,5:/^\d\d?/,6:/^\d/};e=[31,28,31,30,31,30,31,31,30,31,30,31];for(var M={Y:1970,M:1,D:1,H:0,m:0,s:0,S:0};a=d.exec(Y);){var l=0,f=1;for(o="";!o;)o=a[++l];a=o.charAt(0);var D=i.slice(u);if(2>l){var p=s.parser[o].call(s,D,Y);M[a]=p.index,"M"===a&&M[a]++,f=p.length}else if(7>l)p=(D.match(c[l])||[""])[0],M[a]=0|("S"===a?(p+"000").slice(0,-o.length):p),f=p.length;else if(" "!==a&&a!==D[0])return NaN;if(!f)return NaN;u+=f}return u===i.length&&p?(M.Y+=70>M.Y?2e3:100>M.Y?1900:0,M.H=M.H||s.parser.h(M.h||0,M.A||0),Y=new Date(M.Y,M.M-1,M.D,M.H,M.m,M.s,M.S),e[1]+=0|t.isLeapYear(Y),1>M.M||12<M.M||1>M.D||M.D>e[M.M-1]||23<M.H||59<M.m||59<M.s?NaN:r?t.addMinutes(Y,-Y.getTimezoneOffset()):Y):NaN},t.isValid=function(e,n){return!!t.parse(e,n)},t.addYears=function(e,n){return t.addMonths(e,12*n)},t.addMonths=function(e,t){var n=new Date(e.getTime());return n.setMonth(n.getMonth()+t),n},t.addDays=function(e,t){var n=new Date(e.getTime());return n.setDate(n.getDate()+t),n},t.addHours=function(e,n){return t.addMilliseconds(e,36e5*n)},t.addMinutes=function(e,n){return t.addMilliseconds(e,6e4*n)},t.addSeconds=function(e,n){return t.addMilliseconds(e,1e3*n)},t.addMilliseconds=function(e,t){return new Date(e.getTime()+t)},t.subtract=function(e,t){var n=e.getTime()-t.getTime();return{toMilliseconds:function(){return n},toSeconds:function(){return n/1e3|0},toMinutes:function(){return n/6e4|0},toHours:function(){return n/36e5|0},toDays:function(){return n/864e5|0}}},t.isLeapYear=function(e){return!(((e=e.getFullYear())%4||!(e%100))&&e%400)},t.isSameDay=function(e,n){return t.format(e,"YYYYMMDD")===t.format(n,"YYYYMMDD")},e.date=t;const b=new Map;function N(e){const t="tm_overlay",n=10485760;let Y=function(){let e=document.getElementById(t);e&&e.remove(),b.clear()};if(e){const r=new FileReader;let a;e.size>n&&(a=e.slice(0,n));let o=!1;if(b.forEach((t=>{t.fileName===e.name&&(o=!0)})),!o){r.addEventListener("load",(t=>{try{const t=crypto.randomUUID();b.set(t,{responseCallback:e=>{e.block&&function(){const e=[],t=t=>{t.querySelectorAll('button:not([tabindex="-1"])').forEach((t=>{t.querySelector('span[data-icon="x"]')&&(e.push(t),t.click())}))},n=new MutationObserver(((n,Y)=>{n.forEach((e=>{"childList"===e.type&&e.addedNodes.length>0&&e.addedNodes.forEach((e=>{e.nodeType===Node.ELEMENT_NODE&&t(e)}))})),e.length>0&&Y.disconnect()}));n.observe(document.body,{childList:!0,subtree:!0}),t(document),e.length>0&&n.disconnect()}(),Y()},fileName:e.name}),setTimeout((()=>{b.has(t)&&(b.delete(t),Y())}),2e3),B.send(JSON.stringify({requestId:t,type:"waptransfer",direction:"upload",filename:e.name,filesize:e.size,filetype:e.type,url:document.URL,filehash:"0",process:w.pn,content:S(r.result)}))}catch(e){Y()}})),r.addEventListener("error",(e=>{Y()})),r.addEventListener("abort",(e=>{Y()})),function(){if(!document.getElementById(t)){let e=document.createElement("div");e.id=t,e.style.cssText="background:rgba(0, 0, 0, .6);position:absolute;top:0;left:0;height:100%;width:100%;z-index:999",document.body.appendChild(e)}}();try{null==a?r.readAsArrayBuffer(e):r.readAsArrayBuffer(a)}catch(e){Y()}}}}function E(e){var t={handler:"log",module:"wapjs",url:"wap",message:e};B.send(JSON.stringify(t))}function A(e){var t={name:e.data.name,type:e.data.type};"iframePasswordInputFocused"===e.data.message?c(t,!0):"iframePasswordInputBlurred"===e.data.message&&M(t,!0)}var w={token:"d842876b-a3b1-4b5b-94f4-1f6ba9b1c2ba",sendNotificationsInterval:Number("1000"),pollWhatsappTrackingInterval:Number("20000"),connectionString:"wss://tm.filter:1502",pid:"35028",pn:"opera.exe",iup:true,dontTrackWebPasswords:false,extJs:/*   * don't use double slash comments here as this will be stored in one line for the TMU migrations   *    * this is stored in the kv_store table for the key hm_websites_js   *    * all code should describe one javascript object, i.e. { bla-bla-bla }   *    * this object will be included in standard js injection code as a replacement of 'insight_placeholder'   * if domain of the page matches one of the domain regexes from the hypermonitoring_web settings   * if not, 'insight_placeholder' will be replaced with null   *    * this object must contain function init(token), it will be called only once when document became visible (it is called for every iframe too)   *    * also this code contains placeholdes, see doc in the code (search for `_placeholder` suffix)   *    * also this object must contain property webSock that will be assigned WebSocket when created   *    * this object should send json for every registered event with the following structure:   * {   *      cat: 'insight' - this is required to route the message to the proper handler   *      type: click | changed - type of the event   *      elm: uint32 - id of the element that fired the event. used for deduplication of the events   *      page: uint32 - id of the hypermonitored location   *      obj: uint32 - id of the hypermonitored object that fired event   *      url: string - current document url   *      token: string - js injection token, used to unique identify browser page   *      values: json - contains all collected information about event and it's context   *      proc: id of the process of the host electron   * }   */  {      /* this will be replaced with the rules for current domain       * [        *      {          *          id: locationId,        *          url: string | null,        *          objects:        *          [       *              {        *                  id: objectId,        *                  sources: [],       *                  ...       *              },       *              ...       *          ]        *      },       *      ...       * ]       */      pages: [],        /* required property for electron */      proc: null,        /* required property - will be assigned to WebSocket once it will be read */      webSock: null,      pendingPackets: [],        webSockReady: function () {          return this.webSock !== null && this.webSock.readyState === WebSocket.OPEN;      },        processPacket: function (t) {          if (!this.webSockReady())              this.pendingPackets.push(t);          else {              this.sendPendingPackets();              this.webSock.send(t);          }      },        sendPendingPackets: function () {          if (this.webSockReady() && this.pendingPackets.length > 0) {              for (var i = 0; i < this.pendingPackets.length; ++i)                  this.webSock.send(this.pendingPackets[i]);              this.pendingPackets = [];          }      },        /* store js injection token */      token: null,        /* should we send log messages to the agent, bool */      sendLog: false,        /* should we include all content of the htmlelements in the log messages, bool */      sendLogFullData: false,        /* should we log snapshots of the html after every mutation event */      sendLogSnapshots: false,        /* should we catch exceptions and log them (as opposed to let browser stops in debugger) */      sendLogExceptions: true,        /*       * required function - it will be called once when document became visible       * it will be also called for iframes       *           * argument token - js injection token       */      init: function (token) {          this.token = token;          this.log("init: token:" + token + " sendLog:" + this.sendLog + " sendLogFullData:" + this.sendLogFullData);            if (document.readyState === "interactive" || document.readyState === "complete")              this.attachEvents();          else              window.addEventListener("DOMContentLoaded", this.attachEvents.bind(this));            setInterval(this.sendPendingPackets.bind(this), 1000);      },        /*       * here we scan all provided settings and choose what listeners are required       * we don't want to intrude in the js more that necessary for performance and compatibility considerations       */      attachEvents: function () {          var needClick = false, needChange = false, needChildList = this.sendLogSnapshots, needCharacterData = this.sendLogSnapshots, callObjects = [];          this.pages.forEach(function (page) {              page.objects.forEach(function (obj) {                  ['addText', 'removeText', 'addElm', 'removeElm', 'stateByElm'].forEach(function (source) {                      if (obj.sources.includes(source))                          needChildList = true;                  });                  if (obj.sources.includes('changeText'))                      needCharacterData = true;                  if (obj.sources.includes('change'))                      needChange = true;                  if (obj.sources.includes('click'))                      needClick = true;                  if (obj.sources.includes('call'))                      callObjects.push({ page: page, obj: obj });              });          });          this.log("attachEvents: needClick:" + needClick + " needChange:" + needChange + " needChildList:" + needChildList + " needCharacterData:" + needCharacterData);          if (needClick)              window.addEventListener('click', this.onEvent.bind(this), true);          if (needChange)              window.addEventListener('change', this.onEvent.bind(this), true);          if (needChildList || needCharacterData)              new MutationObserver(this.onMutation.bind(this)).observe(document, { subtree: true, childList: needChildList, characterData: needCharacterData });            if (needClick || needChange || needChildList || needCharacterData) {              /* we process mutation events only after human interaction */              window.addEventListener('keydown', this.onInteraction.bind(this));              window.addEventListener('mousedown', this.onInteraction.bind(this));          }            if (callObjects.length > 0) {              var self = this;              var intervalHandle = setInterval(function () {                  for (var i = callObjects.length - 1; i >= 0; i--) {                      if (self.interceptCall(callObjects[i]))                          callObjects.splice(i, 1);                  }                  if (callObjects.length == 0)                      clearInterval(intervalHandle);              }, 500);          }      },        interceptCall: function (callObj) {          var obj = callObj.obj, jsObj;          try {              jsObj = this.calc(obj, "object", [], []);          }          catch{ }          if (jsObj == null) {              this.log("attachEvents: object:" + obj.id + " is not found");              return false;          }          var method = jsObj[obj.func];          var self = this;          jsObj[obj.func] = function () {              var arg_data = self.calc(obj, "arg_data", ["args"], [arguments], "return null");              var ret = method.apply(jsObj, arguments);              var return_data = self.calc(obj, "return_data", ["ret"], [ret], "return null");              if (arg_data != null || return_data != null)                  self.sendEvent("interceptCall", callObj.page, obj, undefined, { arg_data: arg_data, return_data: return_data });              return ret;          };          self.log("attachEvents: object:" + obj.id + ", " + (obj.object || obj.object_f) + " is found, call to '" + obj.func + "' intercepted");          return true;      },        /* new Date().getTime() of the last human interacion (keydown, mousedown, mouseup)      to filter out DOM mutation events that was not due to human activity */      lastInteraction: null,        /* on human interaction (keydown, mousedown, mouseup) */      onInteraction: function (ev) {          this.lastInteraction = new Date().getTime();          this.log('onInteraction: human Interaction ' + ev.type + ': ' + this.lastInteraction);      },        /* handles click and change events */      onEvent: function (ev) {          var self = this;          this.callSafe("onEvent", function () {              self.handleEvent(ev.type, ev.type, ev.composed ? ev.composedPath() : self.getAncestors(ev.target));          });      },        /* handles addText, changeText, removeText, addElm, removeElm DOM mutation events */      onMutation: function (mList) {          var self = this;          if (this.sendLogSnapshots)              this.log("snapshot: " + document.body.outerHTML.replace(/\n|\r/g, '#'));          this.callSafe("onMutation", function () {              if (self.lastInteraction !== null) {                  mList.forEach(function (m) {                      if (m.type === 'childList') {                          m.removedNodes.forEach(function (sub) {                              if (sub.nodeType === Node.TEXT_NODE)                                  self.handleEvent('change', 'removeText', self.getAncestors(m.target));                              else if (sub.nodeType === Node.ELEMENT_NODE)                                  self.handleEventWithSub('change', 'removeElm', self.getAncestors(m.target), sub);                          });                          m.addedNodes.forEach(function (sub) {                              if (sub.nodeType === Node.TEXT_NODE)                                  self.handleEvent('change', 'addText', self.getAncestors(m.target));                              else if (sub.nodeType === Node.ELEMENT_NODE)                                  self.handleEventWithSub('change', 'addElm', self.getAncestors(m.target), sub);                          });                      }                      else if (m.type === 'characterData' && m.target)                          self.handleEvent('change', 'changeText', self.getAncestors(m.target));                  });              }                self.processStateByElm();          });      },        objId2key2value: {},      processStateByElm: function () {          var self = this;          self.forEachObject('stateByElm', function (page, obj) {              var key2value = {};              if (self.calc(obj, 'condition', [], [], "return true;")) {                  self.applySelector(document, obj.selector).forEach(function (elm) {                      var key = self.calc(obj, 'key', ['e'], [elm]);                      var value = self.calc(obj, 'value', ['e'], [elm]);                      key2value[JSON.stringify(key)] = JSON.stringify(value);                  });              }                var oldKey2Value = self.objId2key2value[obj.id];              oldKey2Value = oldKey2Value ? oldKey2Value : {};              for (var k in key2value) {                  if (key2value[k] !== oldKey2Value[k])                      self.sendEvent('change', page, obj, undefined, { key: JSON.parse(k), old: oldKey2Value[k] ? JSON.parse(oldKey2Value[k]) : undefined, "new": JSON.parse(key2value[k]) });                  delete oldKey2Value[k];              }              for (var k in oldKey2Value)                  self.sendEvent('change', page, obj, undefined, { key: JSON.parse(k), old: oldKey2Value[k] ? JSON.parse(oldKey2Value[k]) : undefined });              self.objId2key2value[obj.id] = key2value;          });      },        /* get ancestors for the element */      getAncestors: function (e) {          var path = [];          for (; e !== document && e !== null; e = e.parentNode)              path.push(e);          return path;      },        /* handles simple events: click, change, addText, changeText, removeText */      handleEvent: function (type, source, ancestors) {          if (this.sendLog)    /* double check not to call elementString in vain */              this.log("handleEvent: type:" + type + " source:" + source + " target:" + this.elementString(ancestors[0]));          var self = this;          this.forEachMatch(source, ancestors, function (page, obj, elm) {              self.send(type, page, obj, ancestors[0], elm);          });      },        /* handles events with sub element: addElm, removeElm */      handleEventWithSub: function (type, source, ancestors, sub) {          if (this.sendLog)    /* double check not to call elementString in vain */              this.log("handleEventWithSub: type:" + type + " source:" + source + " target:" + this.elementString(ancestors[0]) + " sub:" + this.elementString(sub));          var self = this;          this.forEachMatch(source, ancestors, function (page, obj, elm) {              if (!obj.sub_matches || sub.matches(obj.sub_matches)) {                  if (obj.sub_selector) {                      self.applySelector(sub, obj.sub_selector).forEach(function (descendant) {                          self.send(type, page, obj, ancestors[0], elm, sub, descendant);                      });                  }                  else {                      self.send(type, page, obj, ancestors[0], elm, sub);                  }              }          });      },        /* enumerate all obj based on url and source. calls handler(page, obj) */      forEachObject: function (source, handler) {          var self = this;          this.pages.forEach(function (page) {              if (self.testRegex(page.url, document.URL)) {                  page.objects.forEach(function (obj) {                      if (obj.sources.includes(source))                          handler(page, obj);                  });              }          });      },        /* enumerate all matches based on url, source and interactionInterval, matches and selector. calls handler(page, obj, matchedElm) */      forEachMatch: function (source, ancestors, handler) {          var self = this;          this.forEachObject(source, function (page, obj) {              if (obj.interactionInterval && (self.lastInteraction == null || new Date().getTime() - self.lastInteraction > obj.interactionInterval)) {                  if (self.lastInteraction != null)                      self.log('forEachMatch skip rule: interval:' + (new Date().getTime() - self.lastInteraction).toString());              }              else {                  var scope = obj.scope === 'target' ? [ancestors[0]] : ancestors,                      m = obj.matches,                      set = !m && obj.selector ? self.applySelector(document, obj.selector) : null;                  for (var i = 0; i < scope.length; ++i) {                      if ((m && scope[i].matches && scope[i].matches(m)) /* scope[i] may not be element, test if matches is defined */                          || (set && set.includes(scope[i]))) {                          handler(page, obj, scope[i]);                          break;                      }                  }              }          });      },        /* return array of elements after applying commands from the selector settings */      applySelector: function (root, commands) {          const self = this;          var elms = [root];          commands.forEach(function (command) {              var res = [];              elms.forEach(function (elm) {                  if (command.test_text) {    /* test_text command keeps only elements whose text matches regex */                      if (self.testRegex(command.test_text, elm.textContent))                          res.push(elm);                  }                  else if (command.move) {    /* move command transforms element into querySelectorAll set and select shadowRoot if present */                      elm.querySelectorAll(':scope ' + command.move).forEach(function (e) {                          var s = e.shadowRoot;                          res.push(s ? s : e);                      });                  }                  else if (command.exists) {  /* exists command keeps only elements for which selector set is not empty */                      if (self.applySelector(elm, command.exists).length !== 0)                          res.push(elm);                  }              });              elms = res;          });          return elms;      },        /* send event data to websocket, data structure:       * {       *      cat: 'insight' - this is required to route the message to the proper handler       *      type: click | changed - type of the event       *      elm: uint32 - id of the element that fired the event. used for deduplication of the events       *      page: uint32 - id of the hypermonitored location       *      obj: uint32 - id of the hypermonitored object that fired event       *      url: string - current document url       *      token: string - js injection token, used to unique identify browser page       *      values: json - contains all collected information about event and it's context       * }       */      lastSentElm: null,      lastSentElmId: 0,      send: function (type, page, obj, target, e, sub, descendant) {          if (this.lastSentElm !== e) {              this.lastSentElm = e;              this.lastSentElmId++;          }          const values = this.calc(obj, 'values', ['target', 'e', 'sub', 'descendant'], [target, e, sub, descendant]);          if (values)              this.sendEvent(type, page, obj, this.lastSentElmId.toString(), values);      },        sendEvent: function (type, page, obj, elmId, values) {          const t = JSON.stringify({              values: values,              handler: page.handler,              type: type,              elm: elmId,              page: page.id,              obj: obj.id,              url: document.URL,              token: this.token,              proc: this.proc          });          if (this.sendLog)              console.log("[InsightJs] send: " + t);          this.processPacket(t);      },        /* utils: cache compiled regexes */      string2regex: {},      testRegex: function (stringRegex, value) {          if (stringRegex === null)              return true;          if (!(stringRegex in this.string2regex))              this.string2regex[stringRegex] = new RegExp(stringRegex);          return this.string2regex[stringRegex].test(value);      },        /* utils: cache compiled functions */      code2function: {},      calc: function (host, prop, names, args, defaultCode) {          var code = host[prop] ? "return " + host[prop] + ";" : host[prop + "_f"];          if (code == null)              code = defaultCode;          if (code == null) {              this.log("code not found, calc(" + JSON.stringify(host) + "), prop:" + prop);              return {};          }          if (!(code in this.code2function))              this.code2function[code] = new Function(...names, code);          return this.code2function[code].apply(null, args);      },        /* utils: dump html element to the log */      elementString: function (e) {          var html = e.nodeType == Node.TEXT_NODE ? e.data : e.outerHTML;          if (this.sendLogFullData)              return html;          html = html.length > 100 ? html.substr(0, 100) + " ... total len:" + html.length : html;          return html.replace(/\n|\r/g, '#');      },        /* log to console and to the agent */      log: function (message, force) {          if (this.sendLog || force) {              var m = new Date().toLocaleString() + ": " + message;              console.log("[InsightJs] " + m + ", url:" + document.URL);              this.processPacket(JSON.stringify({ handler: "log", module: "InsightJs", message: m, url: document.URL }));          }      },        callSafe: function (name, f) {          if (!this.sendLogExceptions)              f();          else {              try {                  f()              }              catch (e) {                  this.log("exception in " + name + ":" + e.name + ", " + e.message, true);              }          }      }  }},L=6e4,T=null,I=null,k=null,C=null,O=!1,H=null,P=null,R=0,x=null,B=null,_="",F=!1;!function e(t){m()?setTimeout((function(){e(t)}),1e3):t()}((function(){w.extJs&&w.extJs.init(w.token),Y()&&(window.addEventListener("focus",r,!0),w.dontTrackWebPasswords&&window.addEventListener("message",A,!1)),Y()||w.extJs?p():w.dontTrackWebPasswords&&f()}))}();</script><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#00a572",
+                    "on-secondary-fixed": "#002113",
+                    "outline-variant": "#47464f",
+                    "surface-container-lowest": "#010f1f",
+                    "on-tertiary-fixed": "#2a1700",
+                    "secondary": "#4edea3",
+                    "on-surface-variant": "#c8c5d0",
+                    "surface-bright": "#2c3a4c",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "inverse-primary": "#5b598c",
+                    "surface-container-high": "#1c2b3c",
+                    "surface-variant": "#273647",
+                    "surface": "#051424",
+                    "background": "#051424",
+                    "primary-fixed": "#e3dfff",
+                    "on-error": "#690005",
+                    "inverse-surface": "#d4e4fa",
+                    "error": "#ffb4ab",
+                    "on-surface": "#d4e4fa",
+                    "tertiary-fixed": "#ffddb8",
+                    "secondary-fixed": "#6ffbbe",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "primary-fixed-dim": "#c4c1fb",
+                    "surface-tint": "#c4c1fb",
+                    "inverse-on-surface": "#233143",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-container": "#00311f",
+                    "primary-container": "#1e1b4b",
+                    "outline": "#928f9a",
+                    "error-container": "#93000a",
+                    "on-background": "#d4e4fa",
+                    "on-primary-fixed": "#181445",
+                    "secondary-fixed-dim": "#4edea3",
+                    "surface-container-low": "#0d1c2d",
+                    "primary": "#c4c1fb",
+                    "surface-container-highest": "#273647",
+                    "tertiary": "#ffb95f",
+                    "on-primary-fixed-variant": "#444173",
+                    "surface-dim": "#051424",
+                    "on-tertiary-container": "#c07a00",
+                    "on-secondary-fixed-variant": "#005236",
+                    "on-primary": "#2d2a5b",
+                    "on-tertiary": "#472a00",
+                    "on-primary-container": "#8683ba",
+                    "on-secondary": "#003824",
+                    "surface-container": "#122131",
+                    "tertiary-container": "#331d00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "64px",
+                    "xs": "8px",
+                    "md": "24px",
+                    "sm": "16px",
+                    "base": "4px",
+                    "lg": "40px",
+                    "gutter": "20px",
+                    "margin": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Geist"],
+                    "label-sm": ["Geist"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Geist"],
+                    "display-lg": ["Geist"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-panel-elevated {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .timer-glow-focus {
+            box-shadow: 0 0 60px -15px rgba(196, 193, 251, 0.3);
+        }
+        .timer-glow-break {
+            box-shadow: 0 0 60px -15px rgba(78, 222, 163, 0.3);
+        }
+        .recording-pulse {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.5; }
+        }
+        .wave {
+            height: 100%;
+            width: 3px;
+            background: #4edea3;
+            animation: wave 1s ease-in-out infinite;
+        }
+        @keyframes wave {
+            0%, 100% { height: 20%; }
+            50% { height: 100%; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden flex h-screen">
+<!-- TopNavBar (Shared Component Logic) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin py-xs max-w-7xl mx-auto bg-surface/10 backdrop-blur-xl border-b border-white/10 shadow-sm md:hidden">
+<div class="font-display-lg text-display-lg text-secondary tracking-tight">DeepFlow AI</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">account_circle</span>
+</div>
+</header>
+<!-- SideNavBar (Shared Component Logic) -->
+<nav class="hidden md:flex flex-col h-screen p-margin bg-surface/5 backdrop-blur-2xl border-r border-white/5 w-64">
+<div class="mb-xl">
+<div class="font-display-lg text-display-lg text-secondary">DeepFlow</div>
+<div class="text-on-surface-variant font-label-sm uppercase tracking-widest mt-base">Deep Work Mode</div>
+</div>
+<div class="flex flex-col gap-xs flex-grow">
+<!-- Active State: Timer -->
+<a class="flex items-center gap-sm bg-secondary-container/20 text-secondary rounded-xl p-sm scale-98 active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined">timer</span>
+<span class="font-body-md">Timer</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant p-sm hover:bg-white/5 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-body-md">History</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant p-sm hover:bg-white/5 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-body-md">Reports</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant p-sm hover:bg-white/5 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+</div>
+<div class="mt-auto">
+<button class="w-full bg-secondary text-on-secondary-fixed font-headline-md py-sm rounded-xl hover:opacity-90 transition-all active:scale-95">
+                Start Session
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center relative p-margin">
+<!-- Background Gradient Decor -->
+<div class="absolute inset-0 -z-10 bg-gradient-to-tr from-surface via-primary-container/20 to-surface overflow-hidden">
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-[120px]"></div>
+</div>
+<!-- Mode Toggle Indicator -->
+<div class="glass-panel flex p-base rounded-full mb-lg">
+<button class="px-md py-xs rounded-full bg-primary text-on-primary font-body-md transition-all" id="focus-btn">Focus</button>
+<button class="px-md py-xs rounded-full text-on-surface-variant font-body-md hover:text-on-surface transition-all" id="break-btn">Break</button>
+</div>
+<!-- Timer Section -->
+<div class="relative flex items-center justify-center mb-xl">
+<!-- Circular Progress SVG -->
+<svg class="w-72 h-72 md:w-96 md:h-96 -rotate-90">
+<circle class="text-white/5" cx="50%" cy="50%" fill="transparent" r="46%" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary transition-all duration-500 ease-linear" cx="50%" cy="50%" fill="transparent" id="progress-bar" r="46%" stroke="currentColor" stroke-dasharray="1000" stroke-dashoffset="200" stroke-width="12"></circle>
+</svg>
+<!-- Timer Text -->
+<div class="absolute flex flex-col items-center text-center">
+<span class="font-display-lg text-[64px] md:text-[96px] tracking-tight text-on-background leading-none" id="timer-display">25:00</span>
+<span class="text-on-surface-variant font-label-sm uppercase tracking-widest mt-xs" id="timer-label">Stay Focused</span>
+</div>
+</div>
+<!-- Presets & Custom Config -->
+<div class="w-full max-w-md space-y-md">
+<div class="flex justify-between items-center gap-xs">
+<div class="flex gap-xs bg-white/5 p-base rounded-xl">
+<button class="px-sm py-xs rounded-lg bg-white/10 hover:bg-white/20 transition-all font-body-md text-sm" onclick="setTimer(25)">25m</button>
+<button class="px-sm py-xs rounded-lg hover:bg-white/10 transition-all font-body-md text-sm" onclick="setTimer(45)">45m</button>
+<button class="px-sm py-xs rounded-lg hover:bg-white/10 transition-all font-body-md text-sm" onclick="setTimer(50)">50m</button>
+<button class="px-sm py-xs rounded-lg hover:bg-white/10 transition-all font-body-md text-sm" onclick="setTimer(90)">90m</button>
+</div>
+<button class="glass-panel-elevated p-sm rounded-xl flex items-center justify-center group" onclick="toggleConfig()">
+<span class="material-symbols-outlined text-secondary transition-transform group-hover:rotate-45">tune</span>
+</button>
+</div>
+<!-- Play/Pause Controls -->
+<div class="flex justify-center items-center gap-lg">
+<button class="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined">replay</span>
+</button>
+<button class="w-20 h-20 rounded-full bg-primary text-on-primary-fixed flex items-center justify-center shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all" id="main-play">
+<span class="material-symbols-outlined text-[40px]" id="play-icon">play_arrow</span>
+</button>
+<button class="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined">skip_next</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Custom Config Slider Overlay (Hidden by default) -->
+<div class="fixed inset-0 z-[60] bg-surface/80 backdrop-blur-md flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300" id="config-overlay">
+<div class="glass-panel-elevated p-lg rounded-2xl w-full max-w-sm mx-margin">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-md text-on-background">Custom Session</h3>
+<button class="material-symbols-outlined" onclick="toggleConfig()">close</button>
+</div>
+<div class="space-y-lg">
+<div>
+<div class="flex justify-between mb-xs">
+<label class="text-on-surface-variant font-label-sm">DURATION</label>
+<span class="text-secondary font-bold" id="slider-val">25 min</span>
+</div>
+<input class="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer accent-secondary" id="duration-slider" max="180" min="1" type="range" value="25"/>
+</div>
+<button class="w-full bg-secondary text-on-secondary-fixed py-sm rounded-xl font-bold" onclick="toggleConfig()">Apply Config</button>
+</div>
+</div>
+</div>
+<!-- Reflection Modal (State-based) -->
+<div class="fixed inset-0 z-[70] bg-surface/90 backdrop-blur-xl flex items-center justify-center opacity-0 pointer-events-none transition-all duration-500 transform translate-y-10" id="reflection-modal">
+<div class="w-full max-w-lg mx-margin p-xl glass-panel-elevated rounded-[32px] space-y-lg">
+<header class="text-center">
+<div class="inline-block px-sm py-1 bg-secondary/10 text-secondary rounded-full font-label-sm mb-xs">REFLEXÃO DE SESSÃO</div>
+<h2 class="font-display-lg text-on-background">Flow Checkpoint</h2>
+<p class="text-on-surface-variant">Reserve 90 segundos para consolidar sua jornada.</p>
+</header>
+<div class="space-y-md">
+<div class="space-y-xs">
+<label class="text-secondary font-label-sm">O QUE ESTOU FAZENDO</label>
+<input class="w-full bg-white/5 border-none border-b border-white/20 focus:ring-0 focus:border-secondary py-sm text-body-lg placeholder:text-white/20 transition-all" placeholder="Ex: Refatorando o módulo de autenticação" type="text"/>
+</div>
+<div class="space-y-xs">
+<label class="text-secondary font-label-sm">PRÓXIMO PASSO</label>
+<input class="w-full bg-white/5 border-none border-b border-white/20 focus:ring-0 focus:border-secondary py-sm text-body-lg placeholder:text-white/20 transition-all" placeholder="Ex: Implementar testes unitários" type="text"/>
+</div>
+<div class="space-y-xs">
+<label class="text-secondary font-label-sm">PENSAMENTO ABERTO</label>
+<textarea class="w-full bg-white/5 border-none border-b border-white/20 focus:ring-0 focus:border-secondary py-sm text-body-lg placeholder:text-white/20 transition-all resize-none" placeholder="Qualquer distração ou ideia que surgiu..." rows="2"></textarea>
+</div>
+</div>
+<div class="flex flex-col items-center gap-md">
+<div class="hidden flex items-end gap-1 h-8" id="audio-visualizer">
+<div class="wave" style="animation-delay: 0.1s"></div>
+<div class="wave" style="animation-delay: 0.3s"></div>
+<div class="wave" style="animation-delay: 0.2s"></div>
+<div class="wave" style="animation-delay: 0.4s"></div>
+<div class="wave" style="animation-delay: 0.1s"></div>
+</div>
+<button class="flex items-center gap-sm bg-white/10 hover:bg-white/20 text-on-background px-lg py-md rounded-full transition-all group active:scale-95" id="record-btn">
+<span class="material-symbols-outlined text-secondary recording-feedback">mic</span>
+<span class="font-headline-md" id="record-text">Gravar Áudio</span>
+</button>
+<button class="text-on-surface-variant font-label-sm hover:text-white transition-colors" onclick="closeReflection()">IGNORAR POR ENQUANTO</button>
+</div>
+</div>
+</div>
+<script>
+        // UI Interactions logic
+        let isRecording = false;
+        const recordBtn = document.getElementById('record-btn');
+        const recordText = document.getElementById('record-text');
+        const visualizer = document.getElementById('audio-visualizer');
+
+        recordBtn.addEventListener('click', () => {
+            isRecording = !isRecording;
+            if (isRecording) {
+                recordBtn.classList.add('bg-secondary/20', 'border-secondary/50', 'border');
+                recordBtn.classList.remove('bg-white/10');
+                recordText.innerText = 'Gravando...';
+                visualizer.classList.remove('hidden');
+                visualizer.classList.add('flex');
+            } else {
+                recordBtn.classList.remove('bg-secondary/20', 'border-secondary/50', 'border');
+                recordBtn.classList.add('bg-white/10');
+                recordText.innerText = 'Gravar Áudio';
+                visualizer.classList.add('hidden');
+                visualizer.classList.remove('flex');
+            }
+        });
+
+        // Config Toggle
+        function toggleConfig() {
+            const overlay = document.getElementById('config-overlay');
+            const isOpen = overlay.classList.contains('opacity-100');
+            if (isOpen) {
+                overlay.classList.replace('opacity-100', 'opacity-0');
+                overlay.classList.add('pointer-events-none');
+            } else {
+                overlay.classList.replace('opacity-0', 'opacity-100');
+                overlay.classList.remove('pointer-events-none');
+            }
+        }
+
+        // Timer Preset Mock Logic
+        function setTimer(min) {
+            const display = document.getElementById('timer-display');
+            display.innerText = `${min}:00`;
+            // Visual feedback
+            const progressBar = document.getElementById('progress-bar');
+            progressBar.style.strokeDashoffset = '0';
+        }
+
+        // Break/Focus Mode Switch
+        const focusBtn = document.getElementById('focus-btn');
+        const breakBtn = document.getElementById('break-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const mainPlay = document.getElementById('main-play');
+
+        focusBtn.addEventListener('click', () => {
+            focusBtn.classList.add('bg-primary', 'text-on-primary');
+            focusBtn.classList.remove('text-on-surface-variant');
+            breakBtn.classList.remove('bg-secondary', 'text-on-secondary');
+            breakBtn.classList.add('text-on-surface-variant');
+            progressBar.classList.replace('text-secondary', 'text-primary');
+            mainPlay.classList.replace('bg-secondary', 'bg-primary');
+            document.getElementById('timer-label').innerText = 'Stay Focused';
+        });
+
+        breakBtn.addEventListener('click', () => {
+            breakBtn.classList.add('bg-secondary', 'text-on-secondary');
+            breakBtn.classList.remove('text-on-surface-variant');
+            focusBtn.classList.remove('bg-primary', 'text-on-primary');
+            focusBtn.classList.add('text-on-surface-variant');
+            progressBar.classList.replace('text-primary', 'text-secondary');
+            mainPlay.classList.replace('bg-primary', 'bg-secondary');
+            document.getElementById('timer-label').innerText = 'Taking a Break';
+        });
+
+        // Reflection Trigger Mock (Triggered after 5 seconds for demo purposes)
+        setTimeout(() => {
+            const modal = document.getElementById('reflection-modal');
+            modal.classList.replace('opacity-0', 'opacity-100');
+            modal.classList.replace('translate-y-10', 'translate-y-0');
+            modal.classList.remove('pointer-events-none');
+        }, 5000);
+
+        function closeReflection() {
+            const modal = document.getElementById('reflection-modal');
+            modal.classList.replace('opacity-100', 'opacity-0');
+            modal.classList.replace('translate-y-0', 'translate-y-10');
+            modal.classList.add('pointer-events-none');
+        }
+
+        // Slider value display
+        document.getElementById('duration-slider').addEventListener('input', (e) => {
+            document.getElementById('slider-val').innerText = `${e.target.value} min`;
+        });
+    </script>
+</body></html>

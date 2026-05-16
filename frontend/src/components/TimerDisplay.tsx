@@ -18,25 +18,25 @@ export function TimerDisplay() {
   const getStatusColor = () => {
     switch (status) {
       case 'running':
-        return 'text-green-600'
+        return 'text-primary'
       case 'pre-warning':
-        return 'text-yellow-600'
+        return 'text-tertiary'
       case 'break':
-        return 'text-blue-600'
+        return 'text-secondary'
       case 'done':
-        return 'text-red-600'
+        return 'text-error'
       default:
-        return 'text-gray-600'
+        return 'text-on-surface'
     }
   }
 
   return (
     <div className="flex flex-col items-center justify-center p-8">
-      <div className={`text-8xl font-bold font-mono ${getStatusColor()} transition-colors`}>
+      <div className={`text-8xl font-bold font-display ${getStatusColor()} transition-colors`}>
         {displayTime}
       </div>
-      <p className="mt-4 text-xl capitalize text-gray-600">
-        {status === 'idle' ? 'Ready to start' : status.replace('-', ' ')}
+      <p className="mt-4 text-xl capitalize text-on-surface-variant">
+        {status === 'idle' ? 'Ready To Start' : status.replace('-', ' ')}
       </p>
     </div>
   )
